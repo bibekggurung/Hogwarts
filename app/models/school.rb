@@ -1,7 +1,9 @@
-class School < ApplicationRecord
-has_many :houses, dependent: :destroy
-has_many :student, through: :houses
+# frozen_string_literal: true
 
-validates :name, presence: true
-validates :owner, presence: true
+class School < ApplicationRecord
+  has_many :houses
+  # has_many :students, through: :houses
+
+  validates :name, presence: true
+  validates :owner, presence: true
 end

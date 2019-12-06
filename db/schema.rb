@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_191829) do
     t.string "name"
     t.string "animal"
     t.string "slogan"
+    t.bigint "school_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["school_id"], name: "index_houses_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2019_12_06_191829) do
   end
 
   add_foreign_key "examples", "users"
+  add_foreign_key "houses", "schools"
 end
